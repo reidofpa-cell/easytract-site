@@ -15,31 +15,28 @@ export const metadata: Metadata = {
 
 function Navigation() {
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          <Link href="/" className="text-2xl font-extrabold text-easytract-primary tracking-tight">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-[#E9ECEF]">
+      <div className="container-lg">
+        <div className="flex justify-between items-center h-20">
+          <Link href="/" className="text-2xl font-black text-[#2D8B5A] tracking-tight">
             EASYTRACT
           </Link>
-          <div className="hidden md:flex items-center space-x-8">
-            <Link href="/how-it-works" className="text-gray-600 hover:text-easytract-primary transition-colors font-medium">
+          <div className="hidden md:flex items-center gap-10">
+            <Link href="/how-it-works" className="nav-link">
               How It Works
             </Link>
-            <Link href="/pricing" className="text-gray-600 hover:text-easytract-primary transition-colors font-medium">
+            <Link href="/pricing" className="nav-link">
               Pricing
             </Link>
-            <Link href="/about" className="text-gray-600 hover:text-easytract-primary transition-colors font-medium">
+            <Link href="/about" className="nav-link">
               About
             </Link>
-            <Link 
-              href="#waitlist" 
-              className="bg-easytract-gradient text-white px-6 py-2 rounded-full font-semibold hover:shadow-easytract-hover transition-all duration-300 hover:-translate-y-0.5"
-            >
+            <Link href="/#waitlist" className="btn-primary px-8 py-3 text-base">
               Join Waitlist
             </Link>
           </div>
-          <button className="md:hidden text-gray-600">
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <button className="md:hidden text-[#495057]">
+            <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
             </svg>
           </button>
@@ -51,32 +48,32 @@ function Navigation() {
 
 function Footer() {
   return (
-    <footer className="bg-easytract-dark text-white py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-4 gap-8">
-          <div className="col-span-2">
-            <h3 className="text-2xl font-extrabold mb-4">EASYTRACT</h3>
-            <p className="text-gray-300 max-w-md">
-              The pre-release compliance layer for the music industry. Eliminating the $2.5B black box one release at a time.
+    <footer className="bg-[#1E5A3A] text-white py-20">
+      <div className="container-lg">
+        <div className="grid md:grid-cols-4 gap-12 mb-12">
+          <div className="md:col-span-2">
+            <h3 className="text-3xl font-black mb-4">EASYTRACT</h3>
+            <p className="text-white/70 text-lg max-w-md leading-relaxed">
+              The pre-release compliance layer for the music industry. Eliminating the $2.5B black box, one release at a time.
             </p>
           </div>
           <div>
-            <h4 className="font-semibold mb-4">Product</h4>
-            <ul className="space-y-2 text-gray-300">
-              <li><Link href="/how-it-works" className="hover:text-white transition-colors">How It Works</Link></li>
-              <li><Link href="/pricing" className="hover:text-white transition-colors">Pricing</Link></li>
-              <li><Link href="/about" className="hover:text-white transition-colors">About</Link></li>
+            <h4 className="font-bold text-lg mb-6">Product</h4>
+            <ul className="space-y-4">
+              <li><Link href="/how-it-works" className="text-white/70 hover:text-white transition-colors">How It Works</Link></li>
+              <li><Link href="/pricing" className="text-white/70 hover:text-white transition-colors">Pricing</Link></li>
+              <li><Link href="/about" className="text-white/70 hover:text-white transition-colors">About</Link></li>
             </ul>
           </div>
           <div>
-            <h4 className="font-semibold mb-4">Legal</h4>
-            <ul className="space-y-2 text-gray-300">
-              <li><a href="#" className="hover:text-white transition-colors">Privacy Policy</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Terms of Service</a></li>
+            <h4 className="font-bold text-lg mb-6">Legal</h4>
+            <ul className="space-y-4">
+              <li><a href="#" className="text-white/70 hover:text-white transition-colors">Privacy Policy</a></li>
+              <li><a href="#" className="text-white/70 hover:text-white transition-colors">Terms of Service</a></li>
             </ul>
           </div>
         </div>
-        <div className="border-t border-white/10 mt-12 pt-8 text-center text-gray-400">
+        <div className="border-t border-white/10 pt-8 text-center text-white/50">
           <p>&copy; {new Date().getFullYear()} Easytract. All rights reserved.</p>
         </div>
       </div>
@@ -91,9 +88,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="antialiased">
+      <body>
         <Navigation />
-        <main className="pt-16">
+        <main className="pt-20">
           {children}
         </main>
         <Footer />

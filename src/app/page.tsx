@@ -5,8 +5,8 @@ import { useState } from "react";
 const stats = [
   { number: "$2.5B+", label: "Unclaimed royalties globally" },
   { number: "80%+", label: "Indie artists manage credits manually" },
-  { number: "60%", label: "Projects delayed by metadata issues" },
-  { number: "120K", label: "New songs released daily" },
+  { number: "60%", label: "Projects delayed by incomplete metadata" },
+  { number: "15+", label: "Fragmented systems to navigate" },
 ];
 
 const features = [
@@ -32,17 +32,12 @@ const features = [
   },
 ];
 
-const testimonials = [
-  {
-    quote: "Every release used to be a nightmare of tracking down credits. Easytract changed everything.",
-    author: "Independent Producer",
-    role: "Atlanta, GA",
-  },
-  {
-    quote: "Finally, a system that speaks our language and solves real problems we face daily.",
-    author: "Label Manager",
-    role: "Los Angeles, CA",
-  },
+const steps = [
+  { num: "01", title: "Song Creation", desc: "Split sheets, work-for-hire, producer agreements" },
+  { num: "02", title: "Publishing Rights", desc: "PRO registration, MLC, publishing admin" },
+  { num: "03", title: "Distribution", desc: "Distributor upload, SoundExchange, international orgs" },
+  { num: "04", title: "Monetization", desc: "Content ID, sync licensing, merch" },
+  { num: "05", title: "Release", desc: "Trademark, LLC, playlist pitching" },
 ];
 
 export default function Home() {
@@ -51,37 +46,34 @@ export default function Home() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Integrate with email service
     setSubmitted(true);
   };
 
   return (
     <div>
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center bg-easytract-gradient relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-20 left-20 w-72 h-72 bg-white rounded-full blur-3xl"></div>
-          <div className="absolute bottom-20 right-20 w-96 h-96 bg-white rounded-full blur-3xl"></div>
-        </div>
-        
-        <div className="max-w-5xl mx-auto px-4 text-center relative z-10 py-20">
-          <h1 className="text-5xl md:text-7xl font-extrabold text-white mb-6 leading-tight animate-fade-in-up">
-            The Pre-Release Compliance Layer for Music
-          </h1>
-          <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto animate-fade-in-up animation-delay-200">
-            Streamline credits, publishing & release coordination to eliminate delays and protect creator rights
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up animation-delay-400">
-            <a 
-              href="#waitlist"
-              className="bg-white text-easytract-primary px-8 py-4 rounded-full font-bold text-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"
-            >
+      <section className="hero-gradient min-h-screen flex items-center justify-center relative">
+        <div className="container-lg text-center relative z-10 py-20">
+          <div className="animate-fade-in-up">
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-8 leading-[0.95] tracking-tight">
+              EASYTRACT
+            </h1>
+          </div>
+          <div className="animate-fade-in-up delay-100">
+            <p className="text-2xl md:text-3xl lg:text-4xl font-semibold text-white/95 mb-6 max-w-4xl mx-auto leading-tight">
+              The Pre-Release Compliance Layer<br />for the Music Industry
+            </p>
+          </div>
+          <div className="animate-fade-in-up delay-200">
+            <p className="text-lg md:text-xl text-white/80 mb-12 max-w-2xl mx-auto">
+              Streamlining music credits, publishing & release coordination to eliminate delays and protect creator rights
+            </p>
+          </div>
+          <div className="animate-fade-in-up delay-300 flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="#waitlist" className="btn-primary text-lg px-10 py-4">
               Join the Waitlist
             </a>
-            <a 
-              href="/how-it-works"
-              className="border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white/10 transition-all duration-300"
-            >
+            <a href="/how-it-works" className="btn-secondary text-lg px-10 py-4">
               See How It Works
             </a>
           </div>
@@ -89,56 +81,52 @@ export default function Home() {
       </section>
 
       {/* Problem Stats */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4">
+      <section className="section bg-white">
+        <div className="container-lg">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              The <span className="text-easytract-primary">$2.5B</span> Problem
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#2C3E50] mb-6">
+              The <span className="gradient-text">$2.5B</span> Problem
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-xl text-[#495057] max-w-2xl mx-auto">
               Music releases are consistently delayed by missing credits, publishing conflicts, and fragmented systems
             </p>
           </div>
           
-          <div className="grid md:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {stats.map((stat, index) => (
-              <div 
-                key={index}
-                className="bg-white p-8 rounded-2xl shadow-easytract border border-gray-100 text-center hover:shadow-easytract-hover transition-all duration-300 hover:-translate-y-2"
-              >
-                <div className="text-4xl md:text-5xl font-extrabold text-easytract-primary mb-2">
-                  {stat.number}
-                </div>
-                <div className="text-gray-600">{stat.label}</div>
+              <div key={index} className="stat-box">
+                <div className="stat-number">{stat.number}</div>
+                <div className="stat-label">{stat.label}</div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Features */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4">
+      {/* Solution Overview */}
+      <section className="section bg-[#F8F9FA]">
+        <div className="container-lg">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              One Platform, Complete Compliance
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#2C3E50] mb-6">
+              Our Solution
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Everything you need to release music with confidence, from first beat to final stream
+            <p className="text-xl text-[#495057] max-w-3xl mx-auto">
+              A comprehensive pre-release compliance layer that eliminates delays, disputes, and lost royalties
             </p>
           </div>
           
           <div className="grid md:grid-cols-2 gap-8">
             {features.map((feature, index) => (
-              <div 
-                key={index}
-                className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-easytract transition-all duration-300 group"
-              >
-                <div className="text-5xl mb-4">{feature.icon}</div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-easytract-primary transition-colors">
+              <div key={index} className="feature-card">
+                <div className="w-16 h-16 bg-gradient-to-br from-[#2D8B5A] to-[#4FBF6E] rounded-2xl flex items-center justify-center text-3xl mb-6">
+                  {feature.icon}
+                </div>
+                <h3 className="text-2xl font-bold text-[#1E5A3A] mb-3">
                   {feature.title}
                 </h3>
-                <p className="text-gray-600 text-lg">{feature.description}</p>
+                <p className="text-[#495057] text-lg leading-relaxed">
+                  {feature.description}
+                </p>
               </div>
             ))}
           </div>
@@ -146,38 +134,33 @@ export default function Home() {
       </section>
 
       {/* How It Works Preview */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4">
+      <section className="section bg-white">
+        <div className="container-lg">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Simple 5-Step Process
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#2C3E50] mb-6">
+              5-Step Process
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-xl text-[#495057] max-w-2xl mx-auto">
               We guide you through every stage, from song creation to release day
             </p>
           </div>
-          
-          <div className="flex flex-wrap justify-center gap-4 mb-12">
-            {["Song Creation", "Publishing Rights", "Distribution", "Monetization", "Release"].map((step, index) => (
-              <div 
-                key={index}
-                className="flex items-center gap-3 bg-easytract-primary/10 px-6 py-3 rounded-full"
-              >
-                <span className="w-8 h-8 bg-easytract-gradient text-white rounded-full flex items-center justify-center font-bold text-sm">
-                  {index + 1}
-                </span>
-                <span className="font-medium text-easytract-dark">{step}</span>
+
+          <div className="grid md:grid-cols-5 gap-4">
+            {steps.map((step, index) => (
+              <div key={index} className="text-center group">
+                <div className="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-[#2D8B5A] to-[#4FBF6E] rounded-2xl flex items-center justify-center text-white text-2xl font-bold shadow-lg group-hover:shadow-xl group-hover:scale-105 transition-all duration-300">
+                  {step.num}
+                </div>
+                <h4 className="font-bold text-[#1E5A3A] text-lg mb-2">{step.title}</h4>
+                <p className="text-sm text-[#495057]">{step.desc}</p>
               </div>
             ))}
           </div>
-          
-          <div className="text-center">
-            <a 
-              href="/how-it-works"
-              className="inline-flex items-center gap-2 text-easytract-primary font-semibold text-lg hover:gap-4 transition-all"
-            >
+
+          <div className="text-center mt-12">
+            <a href="/how-it-works" className="inline-flex items-center gap-3 text-[#2D8B5A] font-semibold text-lg group">
               Learn more about our process
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </a>
@@ -186,74 +169,90 @@ export default function Home() {
       </section>
 
       {/* Waitlist Section */}
-      <section id="waitlist" className="py-20 bg-easytract-gradient">
-        <div className="max-w-3xl mx-auto px-4 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Be First in Line
-          </h2>
-          <p className="text-xl text-white/90 mb-8">
-            Join the waitlist for early access and help us build the future of music rights management
-          </p>
-          
-          {submitted ? (
-            <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-8">
-              <div className="text-5xl mb-4">🎉</div>
-              <h3 className="text-2xl font-bold text-white mb-2">You&apos;re on the list!</h3>
-              <p className="text-white/90">We&apos;ll be in touch soon with exclusive updates.</p>
-            </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                className="flex-1 px-6 py-4 rounded-full text-gray-900 text-lg focus:outline-none focus:ring-4 focus:ring-white/30"
-              />
-              <button
-                type="submit"
-                className="bg-easytract-dark text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-black transition-colors whitespace-nowrap"
-              >
-                Join Waitlist
-              </button>
-            </form>
-          )}
+      <section id="waitlist" className="section hero-gradient">
+        <div className="container-lg">
+          <div className="max-w-3xl mx-auto text-center relative z-10">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-6">
+              Join the Movement
+            </h2>
+            <p className="text-xl text-white/90 mb-10">
+              Be first in line for early access and help us build the future of music rights management
+            </p>
+            
+            {submitted ? (
+              <div className="bg-white/15 backdrop-blur-sm rounded-3xl p-10">
+                <div className="text-6xl mb-4">🎉</div>
+                <h3 className="text-3xl font-bold text-white mb-3">You&apos;re on the list!</h3>
+                <p className="text-white/90 text-lg">We&apos;ll be in touch soon with exclusive updates.</p>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto">
+                <input
+                  type="email"
+                  placeholder="Enter your email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  className="flex-1 px-8 py-5 rounded-full text-[#2C3E50] text-lg border-0 shadow-lg focus:ring-4 focus:ring-white/30"
+                />
+                <button
+                  type="submit"
+                  className="bg-[#1E5A3A] text-white px-10 py-5 rounded-full font-bold text-lg hover:bg-black transition-colors shadow-lg whitespace-nowrap"
+                >
+                  Get Early Access
+                </button>
+              </form>
+            )}
+          </div>
         </div>
       </section>
 
-      {/* Social Proof */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <div key={index} className="bg-gray-50 p-8 rounded-2xl">
-                <div className="text-4xl text-easytract-primary mb-4">&ldquo;</div>
-                <p className="text-xl text-gray-700 mb-6">{testimonial.quote}</p>
-                <div>
-                  <div className="font-semibold text-gray-900">{testimonial.author}</div>
-                  <div className="text-gray-500">{testimonial.role}</div>
-                </div>
+      {/* Market Opportunity */}
+      <section className="section bg-white">
+        <div className="container-lg">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#2C3E50] mb-6">
+              Market Opportunity
+            </h2>
+          </div>
+          
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <div className="text-7xl md:text-8xl lg:text-9xl font-black gradient-text mb-4">
+                $28B+
               </div>
-            ))}
+              <p className="text-2xl text-[#495057]">Global recorded music market size annually</p>
+            </div>
+            
+            <div className="grid md:grid-cols-3 gap-6 text-center">
+              <div className="p-6">
+                <div className="text-3xl font-bold text-[#2D8B5A] mb-2">~15%</div>
+                <p className="text-[#495057]">Independent segment CAGR</p>
+              </div>
+              <div className="p-6">
+                <div className="text-3xl font-bold text-[#2D8B5A] mb-2">2M+</div>
+                <p className="text-[#495057]">Independent artists</p>
+              </div>
+              <div className="p-6">
+                <div className="text-3xl font-bold text-[#2D8B5A] mb-2">50K+</div>
+                <p className="text-[#495057]">Labels & distributors</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Final CTA */}
-      <section className="py-20 bg-gray-900 text-white">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Because every song deserves its royalty
+      <section className="section section-dark">
+        <div className="container-lg text-center">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-6">
+            Because every song<br />deserves its royalty
           </h2>
-          <p className="text-xl text-gray-400 mb-8">
+          <p className="text-xl text-white/80 mb-10 max-w-2xl mx-auto">
             Stop leaving money on the table. Start protecting your rights from day one.
           </p>
-          <a 
-            href="#waitlist"
-            className="inline-block bg-easytract-gradient text-white px-10 py-5 rounded-full font-bold text-xl hover:shadow-easytract-hover transition-all duration-300 hover:-translate-y-1"
-          >
-            Join the Movement
+          <a href="#waitlist" className="btn-primary text-xl px-12 py-5 bg-white !text-[#2D8B5A] hover:bg-white/90">
+            Join the Waitlist
           </a>
         </div>
       </section>
